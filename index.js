@@ -5,14 +5,12 @@ const morgan = require("morgan");
 
 const app = express();
 
-app.use(express.json());
-
 const port = process.env.SERVER_PORT || 3005;
 
 debug("que dices loco");
-const serverUp = (port) => {
+const serverUp = (ports) => {
   const server = app.listen(port, () => {
-    debug(`Server listening on http://localhost:${port}`);
+    debug(`Server listening on http://localhost:${ports}`);
   });
   server.on("error", (error) => {
     debug(`Error on server; `, error.message);
