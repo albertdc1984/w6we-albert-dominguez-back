@@ -2,7 +2,7 @@
   "name": "w6we-albert-dominguez-back",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "node .",
     "start-dev": "npx nodemon ."

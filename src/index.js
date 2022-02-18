@@ -6,20 +6,14 @@ const express = require("express");
 const morgan = require("morgan");
 
 const app = express();
+const serverUp = require("./server/index");
 
 const port = process.env.SERVER_PORT || 3005;
 
 debug("que dices loco");
-const serverUp = (ports) => {
-  const server = app.listen(port, () => {
-    debug(`Server listening on http://localhost:${ports}`);
-  });
-  server.on("error", (error) => {
-    debug(`Error on server; `, error.message);
-  });
-};
+(async () => {
+  await serverUp(port);
+})();
 
 app.use(morgan("dev"));
 app.use(express.json());
-
-serverUp(port);
