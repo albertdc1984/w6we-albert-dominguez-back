@@ -1,4 +1,8 @@
-const debug = require("debug")("robots:server:");
+const debug = require("debug")("robots:server");
+const express = require("express");
+const morgan = require("morgan");
+
+const app = express();
 
 const serverUp = (port) => {
   const server = app.listen(port, () => {
@@ -8,5 +12,5 @@ const serverUp = (port) => {
     debug(`Error on server; `, error.message);
   });
 };
-
+app.use(morgan("dev"));
 module.exports(serverUp);
