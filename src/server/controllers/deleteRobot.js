@@ -3,7 +3,7 @@ const Robot = require("../../database/models/Robot");
 const deleteOneRobot = async (req, res, next) => {
   const { idRobot } = req.params;
   try {
-    const robot = await Robot.deleteOne({ idRobot });
+    const robot = await Robot.findByIdAndDelete(idRobot);
     if (robot) {
       res.json(robot);
     } else {
