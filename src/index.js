@@ -9,7 +9,7 @@ const app = express();
 const serverUp = require("./server/index");
 const dbConnect = require("./database");
 
-const port = process.env.SERVER_PORT || 4000;
+const port = process.env.PORT || 4000;
 const mongoConnection = process.env.MONGO_STRING;
 
 debug("que dices loco");
