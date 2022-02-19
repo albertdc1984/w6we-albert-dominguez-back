@@ -1,3 +1,4 @@
+require("dotenv").config();
 const debug = require("debug")("robots:server");
 const express = require("express");
 const morgan = require("morgan");
@@ -9,7 +10,6 @@ const serverUp = async (port) =>
   new Promise((resolve, reject) => {
     const server = app.listen(port, () => {
       debug(`Server listening on http://localhost:${port}`);
-      debug(`Check the robot list at http://localhost:${port}/robots`);
       resolve();
     });
     server.on("error", (error) => {
@@ -18,6 +18,6 @@ const serverUp = async (port) =>
     });
   });
 
-app.use("/", router);
+app.use("/robots", router);
 app.use(morgan("dev"));
 module.exports = serverUp;
