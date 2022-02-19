@@ -6,13 +6,13 @@ const RobotSchema = new Schema({
     required: false,
   },
   velocity: {
-    type: String,
+    type: Number,
   },
   resistance: {
-    type: String,
+    type: Number,
   },
   year: {
-    type: String,
+    type: Date,
   },
   name: {
     type: String,
