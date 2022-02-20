@@ -12,7 +12,7 @@ const RobotSchema = new Schema({
     type: Number,
   },
   year: {
-    type: Date,
+    type: Number,
   },
   name: {
     type: String,
