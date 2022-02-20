@@ -7,7 +7,7 @@ const getOneRobot = require("../controllers/getOneRobot");
 
 const app = express();
 const router = express.Router();
-app.use(cors);
+app.use(cors());
 
 router.get("/", getAllRobots);
 router.get(`/:idRobot`, getOneRobot);
