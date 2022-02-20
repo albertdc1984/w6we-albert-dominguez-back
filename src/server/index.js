@@ -1,5 +1,6 @@
 require("dotenv").config();
 const debug = require("debug")("robots:server");
+const cors = require("cors");
 const express = require("express");
 const morgan = require("morgan");
 const { notFoundError, generalError } = require("./middlewares/errors");
@@ -19,6 +20,7 @@ const serverUp = async (port) =>
     });
   });
 
+app.use(cors());
 app.use("/robots", router);
 app.use(morgan("dev"));
 
