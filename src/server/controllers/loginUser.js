@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 const User = require("../../database/models/User");
 
 const loginUser = async (req, res, next) => {
-  const { username, password } = req.body;
-  const user = await User.findOne({ username });
-  console.log(user);
+  const { userName, password } = req.body;
+  const user = await User.findOne({ userName });
+
   if (!user) {
     const error = new Error("User not found");
     error.code = 401;
