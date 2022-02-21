@@ -5,8 +5,9 @@ const User = require("../../database/models/User");
 const loginUser = async (req, res, next) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username });
+  console.log(user);
   if (!user) {
-    const error = new Error("User no found");
+    const error = new Error("User not found");
     error.code = 401;
     return next(error);
   }
