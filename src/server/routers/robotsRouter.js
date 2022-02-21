@@ -12,5 +12,6 @@ router.get(`/:idRobot`, getOneRobot);
 router.post("/create", createRobot);
 router.put("/update");
 router.delete("/delete/:idRobot", deleteOneRobot);
+router.get();
 
 module.exports = router;
