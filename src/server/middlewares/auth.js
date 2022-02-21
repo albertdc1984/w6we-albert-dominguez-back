@@ -6,7 +6,7 @@ const auth = (req, res, next) => {
     const error = new Error("Token missing");
     next(error);
   } else {
-    const token = headerAuth.replace("Bearer", "");
+    const token = headerAuth.replace("Bearer ", "");
     try {
       jwt.verify(token, process.env.JWT_SECRET);
       next();

@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/", getAllRobots);
 router.get(`/:idRobot`, getOneRobot);
-router.post("/create", createRobot);
+router.post("/create", auth, createRobot);
 router.put("/update");
 router.delete("/delete/:idRobot", auth, deleteOneRobot);
 
