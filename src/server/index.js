@@ -5,6 +5,7 @@ const express = require("express");
 const morgan = require("morgan");
 const { notFoundError, generalError } = require("./middlewares/errors");
 const router = require("./routers/robotsRouter");
+const routerUser = require("./routers/usersRouter");
 
 const app = express();
 
@@ -21,8 +22,11 @@ const serverUp = async (port) =>
   });
 
 app.use(cors());
-app.use("/robots", router);
+
 app.use(morgan("dev"));
+app.use(express.json());
+app.use("/robots", router);
+app.use("/users", routerUser);
 
 app.use(notFoundError);
 app.use(generalError);
