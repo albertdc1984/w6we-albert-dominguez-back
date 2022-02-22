@@ -8,7 +8,6 @@ const updateRobot = async (req, res, next) => {
       new: true,
     });
 
-    console.log(newRobot);
     if (newRobot) {
       res.status(200).json({ newRobot });
     } else {
