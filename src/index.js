@@ -6,7 +6,7 @@ const express = require("express");
 const morgan = require("morgan");
 
 const app = express();
-const serverUp = require("./server/index");
+const serverUp = require("./server/serverUp");
 const dbConnect = require("./database");
 const router = require("./server/routers/robotsRouter");
 
@@ -15,10 +15,12 @@ const mongoConnection = process.env.MONGO_STRING;
 
 debug("que dices loco");
 (async () => {
-  await serverUp(port);
+  await serverUp(port, app);
   await dbConnect(mongoConnection);
 })();
 
 app.use("/", router);
 app.use(morgan("dev"));
 app.use(express.json());
+
+module.exports = mongoConnection;
