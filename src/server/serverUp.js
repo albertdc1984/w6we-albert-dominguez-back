@@ -10,6 +10,10 @@ const serverUp = async (port, app) =>
       debug(`Error on server; `, error.message);
       reject(error);
     });
+
+    server.on("error", (error) => {
+      reject(new Error(`Error on server: ${error.message}`));
+    });
   });
 
 module.exports = serverUp;
