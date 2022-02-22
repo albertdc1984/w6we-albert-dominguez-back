@@ -22,3 +22,5 @@ debug("que dices loco");
 app.use("/", router);
 app.use(morgan("dev"));
 app.use(express.json());
+
+module.exports = mongoConnection;
