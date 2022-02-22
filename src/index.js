@@ -18,7 +18,6 @@ debug("que dices loco");
   await serverUp(port);
   await dbConnect(mongoConnection);
 })();
-debugger;
 
 app.use("/", router);
 app.use(morgan("dev"));
