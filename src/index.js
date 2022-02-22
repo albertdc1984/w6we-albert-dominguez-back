@@ -2,25 +2,23 @@ require("dotenv").config();
 
 const debug = require("debug")("robots:");
 
-const express = require("express");
-const morgan = require("morgan");
+const chalk = require("chalk");
 
-const app = express();
 const serverUp = require("./server/serverUp");
 const dbConnect = require("./database");
-const router = require("./server/routers/robotsRouter");
+const app = require("./server");
 
 const port = process.env.PORT || 4000;
 const mongoConnection = process.env.MONGO_STRING;
 
 debug("que dices loco");
 (async () => {
-  await serverUp(port, app);
-  await dbConnect(mongoConnection);
+  try {
+    await serverUp(port, app);
+    await dbConnect(mongoConnection);
+  } catch (error) {
+    debug(chalk.bgRed.white(error.message));
+  }
 })();
-
-app.use("/", router);
-app.use(morgan("dev"));
-app.use(express.json());
 
 module.exports = mongoConnection;
