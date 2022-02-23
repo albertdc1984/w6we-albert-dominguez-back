@@ -20,5 +20,3 @@ debug("que dices loco");
     debug(chalk.bgRed.white(error.message));
   }
 })();
-
-module.exports = mongoConnection;

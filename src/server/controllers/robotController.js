@@ -36,7 +36,7 @@ const createRobot = async (req, res) => {
 const deleteOneRobot = async (req, res, next) => {
   const { idRobot } = req.params;
   try {
-    const robot = await Robot.findByIdAndDelete(idRobot);
+    const robot = await Robot.findByIdAndRemove(idRobot);
     if (robot) {
       res.json(robot);
     } else {

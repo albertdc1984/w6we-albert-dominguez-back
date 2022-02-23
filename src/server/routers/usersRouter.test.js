@@ -27,7 +27,7 @@ beforeEach(async () => {
 afterEach(async () => {
   await User.deleteMany({});
 });
-/* describe("Given a users/ endpoint", () => {
+describe("Given a users/ endpoint", () => {
   describe("When it receives a post request", () => {
     test("Then it should respond with status code 200", async () => {
       const user = {
@@ -44,4 +44,3 @@ afterEach(async () => {
     });
   });
 });
- */

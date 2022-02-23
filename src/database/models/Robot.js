@@ -2,7 +2,7 @@ const { model, Schema } = require("mongoose");
 
 const RobotSchema = new Schema({
   _id: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true,
   },
   image: {
